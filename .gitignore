@@ -1,3 +1,4 @@
 __pycache__
-config.json
+.env
 antlr4
+exported_tech_tree.json

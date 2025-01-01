@@ -1,5 +1,10 @@
 from antlr_output.stellarisVisitor import stellarisVisitor
 
+def remove_quotes(text):
+    if text.startswith('"') and text.endswith('"'):
+        return text[1:-1]
+    return text
+
 class CustomStellarisVisitor(stellarisVisitor):
     def visitContent(self, ctx):
         result = {}
@@ -48,7 +53,7 @@ class CustomStellarisVisitor(stellarisVisitor):
         return None
 
     def visitAttrib(self, ctx):
-        return ctx.getText()
+        return remove_quotes(ctx.getText())
 
     def visitArray(self, ctx):
         # print(f"Visiting array: {ctx.getText()}")
@@ -66,4 +71,5 @@ class CustomStellarisVisitor(stellarisVisitor):
         return result
 
     def visitId_(self, ctx):
-        return ctx.getText()
+        return remove_quotes(ctx.getText())
+
