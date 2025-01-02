@@ -5,7 +5,7 @@ import os
 import parser
 
 envPath = '.env'
-output_path = 'exported_tech_tree.json'
+output_path = 'exported_techs.json'
 
 def main():
     env = load_env()
